@@ -8407,8 +8407,8 @@ var PS = { };
           };
           return Data_Maybe.Nothing.value;
       };
-      return Prelude["<$>"](Data_Maybe.functorMaybe)(function ($526) {
-          return Data_String.joinWith("")(Data_List.fromList(Data_Unfoldable.unfoldableArray)($526));
+      return Prelude["<$>"](Data_Maybe.functorMaybe)(function ($528) {
+          return Data_String.joinWith("")(Data_List.fromList(Data_Unfoldable.unfoldableArray)($528));
       })(Data_Traversable["for"](Data_Maybe.applicativeMaybe)(Data_List.traversableList)(v)(extract));
   };
   var pathPropName = "clickyEvaluation_path";
@@ -8444,14 +8444,14 @@ var PS = { };
   var getPath = function (j) {
       return function __do() {
           var v = Control_Monad_Eff_JQuery.getProp(pathPropName)(j)();
-          var $149 = Data_Foreign.isUndefined(v);
-          if ($149) {
+          var $150 = Data_Foreign.isUndefined(v);
+          if ($150) {
               return Data_Maybe.Nothing.value;
           };
-          if (!$149) {
+          if (!$150) {
               return Data_Maybe.Just.create(Data_Foreign.unsafeFromForeign(v));
           };
-          throw new Error("Failed pattern match at Web line 34, column 1 - line 35, column 1: " + [ $149.constructor.name ]);
+          throw new Error("Failed pattern match at Web line 34, column 1 - line 35, column 1: " + [ $150.constructor.name ]);
       };
   };
   var fresh = Prelude.bind(Control_Monad_State_Trans.bindStateT(Data_Identity.monadIdentity))(Control_Monad_State_Class.get(Control_Monad_State_Trans.monadStateStateT(Data_Identity.monadIdentity)))(function (v) {
@@ -8669,7 +8669,10 @@ var PS = { };
               Control_Monad_Eff_JQuery.appendText(v)(d)();
               return Control_Monad_Eff_JQuery.on("mouseenter")(function (e) {
                   return function (div) {
-                      return JSHelpers.showTooltip(div)(v1)(e);
+                      return function __do() {
+                          var v3 = Control_Monad_Eff_JQuery.stopPropagation(e)();
+                          return JSHelpers.showTooltip(div)(v1)(e)();
+                      };
                   };
               })(d)();
           };
@@ -8969,15 +8972,15 @@ var PS = { };
                   };
                   if (o.expr instanceof AST.Binary && (o.typ instanceof AST.TBinary && o.idTree instanceof AST.IBinary)) {
                       return function __do() {
-                          var v = go(function ($527) {
-                              return p(AST.Fst.create($527));
+                          var v = go(function ($529) {
+                              return p(AST.Fst.create($529));
                           })({
                               expr: o.expr.value1, 
                               typ: o.typ.value1, 
                               idTree: o.idTree.value1
                           })();
-                          var v1 = go(function ($528) {
-                              return p(AST.Snd.create($528));
+                          var v1 = go(function ($530) {
+                              return p(AST.Snd.create($530));
                           })({
                               expr: o.expr.value2, 
                               typ: o.typ.value2, 
@@ -8987,16 +8990,16 @@ var PS = { };
                       };
                   };
                   if (o.expr instanceof AST.List && (o.typ instanceof AST.TListTree && o.idTree instanceof AST.IListTree)) {
-                      var $403 = toStr(o.expr.value0);
-                      if ($403 instanceof Data_Maybe.Just) {
-                          return string($403.value0)(o.typ.value1)(o.idTree.value1);
+                      var $405 = toStr(o.expr.value0);
+                      if ($405 instanceof Data_Maybe.Just) {
+                          return string($405.value0)(o.typ.value1)(o.idTree.value1);
                       };
-                      if ($403 instanceof Data_Maybe.Nothing) {
+                      if ($405 instanceof Data_Maybe.Nothing) {
                           return function __do() {
                               var v = Data_List.zipWithA(Control_Monad_Eff.applicativeEff)(function (i1) {
                                   return function (v) {
-                                      return go(function ($529) {
-                                          return p(AST.Nth.create(i1)($529));
+                                      return go(function ($531) {
+                                          return p(AST.Nth.create(i1)($531));
                                       })({
                                           expr: v.value1.value0, 
                                           typ: v.value1.value1, 
@@ -9007,14 +9010,14 @@ var PS = { };
                               return list(v)(o.typ.value1)(o.idTree.value1)();
                           };
                       };
-                      throw new Error("Failed pattern match at Web line 62, column 1 - line 63, column 1: " + [ $403.constructor.name ]);
+                      throw new Error("Failed pattern match at Web line 62, column 1 - line 63, column 1: " + [ $405.constructor.name ]);
                   };
                   if (o.expr instanceof AST.NTuple && (o.typ instanceof AST.TNTuple && o.idTree instanceof AST.INTuple)) {
                       return function __do() {
                           var v = Data_List.zipWithA(Control_Monad_Eff.applicativeEff)(function (i1) {
                               return function (v) {
-                                  return go(function ($530) {
-                                      return p(AST.Nth.create(i1)($530));
+                                  return go(function ($532) {
+                                      return p(AST.Nth.create(i1)($532));
                                   })({
                                       expr: v.value1.value0, 
                                       typ: v.value1.value1, 
@@ -9027,8 +9030,8 @@ var PS = { };
                   };
                   if (o.expr instanceof AST.SectL && (o.typ instanceof AST.TSectL && o.idTree instanceof AST.ISectL)) {
                       return function __do() {
-                          var v = go(function ($531) {
-                              return p(AST.Fst.create($531));
+                          var v = go(function ($533) {
+                              return p(AST.Fst.create($533));
                           })({
                               expr: o.expr.value0, 
                               typ: o.typ.value0, 
@@ -9041,8 +9044,8 @@ var PS = { };
                   if (o.expr instanceof AST.SectR && (o.typ instanceof AST.TSectR && o.idTree instanceof AST.ISectR)) {
                       return function __do() {
                           var v = Prelude[">>="](Control_Monad_Eff.bindEff)(Prelude[">>="](Control_Monad_Eff.bindEff)(makeDiv(AST.pPrintOp(o.expr.value0))(Data_List.singleton("op")))(addTypetoDiv(o.typ.value0)))(addIdtoDiv(Prelude.showInt)(o.idTree.value0))();
-                          var v1 = go(function ($532) {
-                              return p(AST.Snd.create($532));
+                          var v1 = go(function ($534) {
+                              return p(AST.Snd.create($534));
                           })({
                               expr: o.expr.value1, 
                               typ: o.typ.value1, 
@@ -9056,22 +9059,22 @@ var PS = { };
                   };
                   if (o.expr instanceof AST.IfExpr && (o.typ instanceof AST.TIfExpr && o.idTree instanceof AST.IIfExpr)) {
                       return function __do() {
-                          var v = go(function ($533) {
-                              return p(AST.Fst.create($533));
+                          var v = go(function ($535) {
+                              return p(AST.Fst.create($535));
                           })({
                               expr: o.expr.value0, 
                               typ: o.typ.value0, 
                               idTree: o.idTree.value0
                           })();
-                          var v1 = go(function ($534) {
-                              return p(AST.Snd.create($534));
+                          var v1 = go(function ($536) {
+                              return p(AST.Snd.create($536));
                           })({
                               expr: o.expr.value1, 
                               typ: o.typ.value1, 
                               idTree: o.idTree.value1
                           })();
-                          var v2 = go(function ($535) {
-                              return p(AST.Thrd.create($535));
+                          var v2 = go(function ($537) {
+                              return p(AST.Thrd.create($537));
                           })({
                               expr: o.expr.value2, 
                               typ: o.typ.value2, 
@@ -9083,8 +9086,8 @@ var PS = { };
                   if (o.expr instanceof AST.Lambda && (o.typ instanceof AST.TLambda && o.idTree instanceof AST.ILambda)) {
                       return function __do() {
                           var v = Data_Traversable["for"](Control_Monad_Eff.applicativeEff)(Data_List.traversableList)(Data_List.zip(o.idTree.value0)(Data_List.zip(o.expr.value0)(o.typ.value0)))(binding)();
-                          var v1 = go(function ($536) {
-                              return p(AST.Fst.create($536));
+                          var v1 = go(function ($538) {
+                              return p(AST.Fst.create($538));
                           })({
                               expr: o.expr.value1, 
                               typ: o.typ.value1, 
@@ -9095,8 +9098,8 @@ var PS = { };
                   };
                   if (o.expr instanceof AST.App && (o.typ instanceof AST.TApp && o.idTree instanceof AST.IApp)) {
                       return function __do() {
-                          var v = go(function ($537) {
-                              return p(AST.Fst.create($537));
+                          var v = go(function ($539) {
+                              return p(AST.Fst.create($539));
                           })({
                               expr: o.expr.value0, 
                               typ: o.typ.value0, 
@@ -9104,8 +9107,8 @@ var PS = { };
                           })();
                           var v1 = Data_List.zipWithA(Control_Monad_Eff.applicativeEff)(function (i2) {
                               return function (v1) {
-                                  return go(function ($538) {
-                                      return p(AST.Nth.create(i2)($538));
+                                  return go(function ($540) {
+                                      return p(AST.Nth.create(i2)($540));
                                   })({
                                       expr: v1.value1.value0, 
                                       typ: v1.value1.value1, 
@@ -9124,8 +9127,8 @@ var PS = { };
   };
   var exprToJQuery = function (output) {
       var topLevel = (function () {
-          var $513 = TypeChecker.extractType(output.typ);
-          if ($513 instanceof AST["TypeError"]) {
+          var $515 = TypeChecker.extractType(output.typ);
+          if ($515 instanceof AST["TypeError"]) {
               return exprToJQuery$prime(output);
           };
           return function __do() {
@@ -10114,7 +10117,7 @@ var PS = { };
       var handler = function (jEvent) {
           return function (jq1) {
               return function __do() {
-                  Control_Monad_Eff_JQuery.stopImmediatePropagation(jEvent)();
+                  Control_Monad_Eff_JQuery.stopPropagation(jEvent)();
                   removeMouseOver();
                   Control_Monad_Eff_JQuery.addClass("mouseOver")(jq1)();
                   return Prelude.unit;
